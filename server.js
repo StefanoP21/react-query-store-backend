@@ -15,6 +15,7 @@ connectionDB();
 app.use(express.json());
 
 // Routes
+app.use('/api/products', require('./routes/products'));
 
 // Server
 app.listen(port, () => {
