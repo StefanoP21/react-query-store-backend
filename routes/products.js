@@ -7,15 +7,10 @@ const router = Router();
 router.get('/', async (req = request, res = response) => {
   const category = req.query.category;
 
-  if (!category) {
-    return res.status(400).json({
-      ok: false,
-      msg: 'La categoria es obligatoria',
-    });
-  }
-
   try {
-    const products = await Product.find({ category });
+    const products = category
+      ? await Product.find({ category })
+      : await Product.find();
 
     if (!products || products.length === 0) {
       return res.status(404).json({
