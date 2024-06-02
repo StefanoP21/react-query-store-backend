@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const RaitingSchema = Schema({
+const RaitingSchema = new Schema({
   rate: {
     type: Number,
   },
@@ -9,7 +9,7 @@ const RaitingSchema = Schema({
   },
 });
 
-const ProductSchema = Schema({
+const ProductSchema = new Schema({
   title: {
     type: String,
     required: [true, 'The title is required'],
@@ -41,4 +41,4 @@ ProductSchema.methods.toJSON = function () {
   return product;
 };
 
-module.exports = model('Product', ProductSchema, 'products');
+export const Product = model('Product', ProductSchema, 'products');
