@@ -1,10 +1,10 @@
-const { Router } = require('express');
-const { request, response } = require('express');
-const Product = require('../schemas/Product');
+import { Request, Response } from 'express';
+import { Router } from 'express';
+import { Product } from '../schemas/Product';
 
 const router = Router();
 
-router.get('/', async (req = request, res = response) => {
+router.get('/', async (req: Request, res: Response) => {
   const category = req.query.category;
 
   try {
@@ -33,7 +33,7 @@ router.get('/', async (req = request, res = response) => {
   }
 });
 
-router.get('/:id', async (req = request, res = response) => {
+router.get('/:id', async (req: Request, res: Response) => {
   const productId = req.params.id;
 
   try {
@@ -60,7 +60,7 @@ router.get('/:id', async (req = request, res = response) => {
   }
 });
 
-router.post('/', async (req = request, res = response) => {
+router.post('/', async (req: Request, res: Response) => {
   const product = new Product(req.body);
 
   try {
