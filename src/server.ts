@@ -1,13 +1,17 @@
-const express = require('express');
-require('dotenv').config();
-const cors = require('cors');
-const { connectionDB } = require('./database/config');
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+
+import { connectionDB } from './database/config';
+
+// Dotenv
+dotenv.config();
 
 // Express server
 const app = express();
 
 // Port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT ?? 3001;
 
 // Database connection
 connectionDB();
